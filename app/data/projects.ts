@@ -56,7 +56,7 @@ export const projects: Project[] = [
   {
     id: 'project-5',
     name: 'Etiqa Insurance Philippines',
-    description: 'Developing the frontend for Etiqa\'s insurance website in the Philippines. Building Vue components and integrating REST APIs provided by Etiqa\'s own backend team to display CMS-managed content including insurance products, FAQs, and landing pages. Currently in progress.',
+    description: 'Developing the frontend for Etiqa\'s insurance website in the Philippines. Building Vue components and consuming REST APIs for CMS-managed content such as products and FAQs, while also integrating APIs provided by Etiqa\'s backend team for insurance-related flows including KYC and policy purchasing. Currently in progress.',
     screenshot: '/projects/etiqa.png',
     tags: ['Vue.js', 'Nuxt.js', 'Tailwind CSS', 'REST API', 'CMS'],
     status: 'in-development',
@@ -65,7 +65,7 @@ export const projects: Project[] = [
   {
     id: 'project-6',
     name: 'Etiqa Online Shop Portal',
-    description: 'Developing the frontend for Etiqa\'s online insurance shop where users can browse and purchase insurance products. Integrating REST APIs provided by Etiqa\'s own backend team for product listings and checkout flows. Currently in progress.',
+    description: 'Developing the frontend for Etiqa\'s online insurance shop where users can browse and purchase insurance products. Consuming REST APIs for CMS-driven content while integrating APIs provided by Etiqa\'s backend team to handle the insurance buying flow, including KYC verification and policy issuance. Currently in progress.',
     screenshot: '/projects/etiqa-portal.png',
     tags: ['Vue.js', 'Nuxt.js', 'Tailwind CSS', 'REST API', 'CMS'],
     status: 'in-development',
