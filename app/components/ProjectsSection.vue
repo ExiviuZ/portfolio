@@ -20,14 +20,13 @@ const { stop } = useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
       <h2 class="text-3xl font-bold text-[--color-text-primary] md:text-4xl">Projects</h2>
     </div>
 
-    <div
-      class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 transition-all duration-700"
-      :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
-    >
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       <div
-        v-for="project in projects"
+        v-for="(project, index) in projects"
         :key="project.id"
         class="group flex flex-col overflow-hidden rounded-xl border border-[--color-border] bg-[--color-bg-card] transition-all duration-300 hover:-translate-y-1 hover:border-[--color-accent]/30 hover:shadow-xl hover:shadow-cyan-500/10"
+        :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
+        :style="isVisible ? { transitionDelay: `${index * 100}ms`, transitionDuration: '600ms', transitionProperty: 'opacity, transform' } : {}"
       >
         <div class="relative overflow-hidden">
           <img

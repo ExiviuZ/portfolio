@@ -62,8 +62,9 @@ const socialLinks = [
       <div class="flex flex-col gap-12 md:flex-row">
         <form class="flex-1 space-y-4" @submit.prevent="handleSubmit">
           <div>
-            <label class="mb-1 block text-sm text-[--color-text-muted]">Name</label>
+            <label for="contact-name" class="mb-1 block text-sm text-[--color-text-muted]">Name</label>
             <input
+              id="contact-name"
               v-model="form.name"
               type="text"
               required
@@ -73,8 +74,9 @@ const socialLinks = [
           </div>
 
           <div>
-            <label class="mb-1 block text-sm text-[--color-text-muted]">Email</label>
+            <label for="contact-email" class="mb-1 block text-sm text-[--color-text-muted]">Email</label>
             <input
+              id="contact-email"
               v-model="form.email"
               type="email"
               required
@@ -84,8 +86,9 @@ const socialLinks = [
           </div>
 
           <div>
-            <label class="mb-1 block text-sm text-[--color-text-muted]">Message</label>
+            <label for="contact-message" class="mb-1 block text-sm text-[--color-text-muted]">Message</label>
             <textarea
+              id="contact-message"
               v-model="form.message"
               required
               rows="5"

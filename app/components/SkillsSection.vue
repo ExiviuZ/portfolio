@@ -34,7 +34,7 @@ const { stop } = useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
               :key="skill.name"
               class="flex flex-col items-center gap-2 rounded-xl border border-[--color-border] bg-[--color-bg-card] p-4 transition-all duration-200 hover:-translate-y-1 hover:border-[--color-accent]/40 hover:shadow-lg hover:shadow-cyan-500/5"
             >
-              <Icon :icon="skill.icon" class="h-8 w-8" />
+              <Icon :icon="skill.icon" class="h-8 w-8" aria-hidden="true" />
               <span class="text-xs text-[--color-text-muted]">{{ skill.name }}</span>
             </div>
           </div>
@@ -48,7 +48,7 @@ const { stop } = useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
               :key="skill.name"
               class="flex flex-col items-center gap-2 rounded-xl border border-[--color-border] bg-[--color-bg-card] p-4 transition-all duration-200 hover:-translate-y-1 hover:border-[--color-accent]/40 hover:shadow-lg hover:shadow-cyan-500/5"
             >
-              <Icon :icon="skill.icon" class="h-8 w-8" />
+              <Icon :icon="skill.icon" class="h-8 w-8" aria-hidden="true" />
               <span class="text-xs text-[--color-text-muted]">{{ skill.name }}</span>
             </div>
           </div>

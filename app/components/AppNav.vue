@@ -15,8 +15,10 @@ const navLinks = [
 
 function scrollTo(href: string) {
   isMenuOpen.value = false
-  const el = document.querySelector(href)
-  el?.scrollIntoView({ behavior: 'smooth' })
+  if (import.meta.client) {
+    const el = document.querySelector(href)
+    el?.scrollIntoView({ behavior: 'smooth' })
+  }
 }
 </script>
 
@@ -45,6 +47,7 @@ function scrollTo(href: string) {
       <button
         class="flex flex-col gap-1.5 md:hidden"
         aria-label="Toggle menu"
+        :aria-expanded="isMenuOpen"
         @click="isMenuOpen = !isMenuOpen"
       >
         <span v-for="i in 3" :key="i" class="block h-0.5 w-6 bg-[--color-text-primary] transition-all duration-200" />

@@ -10,7 +10,9 @@ onMounted(start)
 onUnmounted(stop)
 
 function scrollToProjects() {
-  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
+  if (import.meta.client) {
+    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
+  }
 }
 </script>
 
