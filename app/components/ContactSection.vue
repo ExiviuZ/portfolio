@@ -1,6 +1,6 @@
 <!-- app/components/ContactSection.vue -->
 <script setup lang="ts">
-const FORMSPREE_ID = 'YOUR_FORMSPREE_ID' // User will replace with real ID
+const FORMSPREE_ID = 'mreoodkz'
 
 const form = reactive({
   name: '',
