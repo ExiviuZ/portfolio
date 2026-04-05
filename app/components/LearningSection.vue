@@ -53,10 +53,10 @@ const items = [
   <section
     id="learning"
     ref="sectionRef"
-    class="bg-[--color-bg-secondary] px-6 py-24"
+    class="bg-[--color-bg-secondary] px-6 py-16"
   >
     <div class="mx-auto max-w-6xl">
-      <div class="mb-16 text-center">
+      <div class="mb-10 text-center">
         <p class="mb-2 font-mono text-sm text-[--color-accent] tracking-widest uppercase">Always growing</p>
         <h2 class="text-3xl font-bold text-[--color-text-primary] md:text-4xl">Currently Learning</h2>
         <p class="mt-4 max-w-xl mx-auto text-sm text-[--color-text-muted]">

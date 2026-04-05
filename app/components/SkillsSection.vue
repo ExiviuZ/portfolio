@@ -15,9 +15,9 @@ const { stop } = useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
 </script>
 
 <template>
-  <section id="skills" ref="sectionRef" class="bg-[--color-bg-secondary] px-6 py-24">
+  <section id="skills" ref="sectionRef" class="bg-[--color-bg-secondary] px-6 py-16">
     <div class="mx-auto max-w-6xl">
-      <div class="mb-16 text-center">
+      <div class="mb-10 text-center">
         <p class="mb-2 font-mono text-sm text-[--color-accent] tracking-widest uppercase">What I work with</p>
         <h2 class="text-3xl font-bold text-[--color-text-primary] md:text-4xl">Skills</h2>
       </div>

@@ -24,7 +24,7 @@ function scrollToProjects() {
       </p>
 
       <h1 class="mb-4 text-5xl font-bold tracking-tight text-[--color-text-primary] md:text-7xl">
-        Your Name
+        Mark Angel Papio
       </h1>
 
       <div class="mb-6 h-8 font-mono text-xl text-[--color-accent] md:text-2xl">

@@ -19,8 +19,8 @@ const { stop } = useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
 </script>
 
 <template>
-  <section id="about" ref="sectionRef" class="mx-auto max-w-6xl px-6 py-24">
-    <div class="mb-16 text-center">
+  <section id="about" ref="sectionRef" class="mx-auto max-w-6xl px-6 py-16">
+    <div class="mb-10 text-center">
       <p class="mb-2 font-mono text-sm text-[--color-accent] tracking-widest uppercase">Get to know me</p>
       <h2 class="text-3xl font-bold text-[--color-text-primary] md:text-4xl">About Me</h2>
     </div>
@@ -31,11 +31,11 @@ const { stop } = useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
     >
       <div class="flex-1 space-y-4 text-[--color-text-muted] leading-relaxed">
         <p>
-          Hi! I'm <span class="text-[--color-text-primary] font-medium">Your Name</span>, a frontend developer based in [Your Location].
+          Hi! I'm <span class="text-[--color-text-primary] font-medium">Mark Angel Papio</span>, a frontend developer based in Philippines.
           I started my career building user interfaces with Vue.js and gradually expanded my skills to cover backend integration with Laravel.
         </p>
         <p>
-          During my time at [Previous Company], I worked on [brief description], where I developed and maintained frontend features,
+          During my time at Designblue Manila, I worked on several projects, where I developed and maintained frontend features,
           integrated REST APIs, and collaborated with backend engineers to deliver full-stack features.
         </p>
         <p>
@@ -57,8 +57,8 @@ const { stop } = useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
         <div class="relative h-64 w-64 md:h-72 md:w-72">
           <div class="absolute inset-0 rounded-xl border-2 border-[--color-accent] translate-x-3 translate-y-3" />
           <img
-            src="/profile.jpg"
-            alt="Your Name"
+            src="/images/profile.jpg"
+            alt="Mark Angel Papio"
             class="relative h-full w-full rounded-xl object-cover grayscale hover:grayscale-0 transition-all duration-300"
           />
         </div>

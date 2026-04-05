@@ -31,9 +31,9 @@ const experiences = [
   <section
     id="experience"
     ref="sectionRef"
-    class="mx-auto max-w-6xl px-6 py-24"
+    class="mx-auto max-w-6xl px-6 py-16"
   >
-    <div class="mb-16 text-center">
+    <div class="mb-10 text-center">
       <p class="mb-2 font-mono text-sm text-[--color-accent] tracking-widest uppercase">Where I've worked</p>
       <h2 class="text-3xl font-bold text-[--color-text-primary] md:text-4xl">Experience</h2>
     </div>
