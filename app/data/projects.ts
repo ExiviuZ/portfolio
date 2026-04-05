@@ -1,4 +1,5 @@
 export type ProjectStatus = 'live' | 'in-development' | 'private'
+export type ProjectCategory = 'work' | 'practice'
 
 export interface Project {
   id: string
@@ -8,6 +9,7 @@ export interface Project {
   screenshot: string
   tags: string[]
   status: ProjectStatus
+  category: ProjectCategory
 }
 
 export const projects: Project[] = [
@@ -19,6 +21,7 @@ export const projects: Project[] = [
     screenshot: '/projects/suntrust.webp',
     tags: ['Vue.js', 'Laravel', 'MySQL'],
     status: 'live',
+    category: 'work',
   },
   {
     id: 'project-2',
@@ -28,6 +31,7 @@ export const projects: Project[] = [
     screenshot: '/projects/inlife.png',
     tags: ['Vue.js', 'Nuxt.js', 'Tailwind CSS', 'REST API'],
     status: 'live',
+    category: 'work',
   },
   {
     id: 'project-3',
@@ -37,6 +41,7 @@ export const projects: Project[] = [
     screenshot: '/projects/robinsons.webp',
     tags: ['Vue.js', 'Nuxt.js', 'Tailwind CSS', 'REST API'],
     status: 'live',
+    category: 'work',
   },
   {
     id: 'project-4',
@@ -46,6 +51,7 @@ export const projects: Project[] = [
     screenshot: '/projects/adb.png',
     tags: ['Vue.js', 'Nuxt.js', 'Tailwind CSS', 'Static Site'],
     status: 'live',
+    category: 'work',
   },
   {
     id: 'project-5',
@@ -54,6 +60,7 @@ export const projects: Project[] = [
     screenshot: '/projects/etiqa.png',
     tags: ['Vue.js', 'PHP', 'Bootstrap'],
     status: 'in-development',
+    category: 'work',
   },
   {
     id: 'project-6',
@@ -62,6 +69,7 @@ export const projects: Project[] = [
     screenshot: '/projects/etiqa-portal.png',
     tags: ['Vue.js', 'PHP', 'Bootstrap'],
     status: 'in-development',
+    category: 'work',
   },
   {
     id: 'project-7',
@@ -70,6 +78,7 @@ export const projects: Project[] = [
     screenshot: '/projects/brikk.png',
     tags: ['Vue.js', 'Nuxt.js', 'Tailwind CSS', 'REST API'],
     status: 'private',
+    category: 'work',
   },
   
 ]

@@ -1,9 +1,20 @@
 <!-- app/components/ProjectsSection.vue -->
 <script setup lang="ts">
+import type { ProjectCategory } from '../data/projects'
 import { projects } from '../data/projects'
 
 const sectionRef = ref<HTMLElement | null>(null)
 const isVisible = ref(false)
+const activeTab = ref<ProjectCategory>('work')
+
+const filteredProjects = computed(() =>
+  projects.filter(p => p.category === activeTab.value)
+)
+
+const tabs: { label: string; value: ProjectCategory }[] = [
+  { label: 'Work Projects', value: 'work' },
+  { label: 'Practice Projects', value: 'practice' },
+]
 
 const { stop } = useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
   if (isIntersecting) {
@@ -20,9 +31,26 @@ const { stop } = useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
       <h2 class="text-3xl font-bold text-[--color-text-primary] md:text-4xl">Projects</h2>
     </div>
 
+    <!-- Tabs -->
+    <div class="mb-10 flex justify-center">
+      <div class="flex rounded-lg border border-[--color-border] bg-[--color-bg-card] p-1 gap-1">
+        <button
+          v-for="tab in tabs"
+          :key="tab.value"
+          class="rounded-md px-5 py-2 text-sm font-medium transition-all duration-200"
+          :class="activeTab === tab.value
+            ? 'bg-[--color-accent] text-[--color-bg-primary]'
+            : 'text-[--color-text-muted] hover:text-[--color-text-primary]'"
+          @click="activeTab = tab.value"
+        >
+          {{ tab.label }}
+        </button>
+      </div>
+    </div>
+
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       <div
-        v-for="(project, index) in projects"
+        v-for="(project, index) in filteredProjects"
         :key="project.id"
         class="group flex flex-col overflow-hidden rounded-xl border border-[--color-border] bg-[--color-bg-card] transition-all duration-300 hover:-translate-y-1 hover:border-[--color-accent]/30 hover:shadow-xl hover:shadow-cyan-500/10"
         :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
