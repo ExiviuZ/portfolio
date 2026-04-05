@@ -22,6 +22,9 @@ const { stop } = useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
     stop()
   }
 })
+
+const { app: { baseURL } } = useRuntimeConfig()
+const imgSrc = (path: string) => `${baseURL.replace(/\/$/, '')}${path}`
 </script>
 
 <template>
@@ -61,7 +64,7 @@ const { stop } = useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
 
         <div class="relative overflow-hidden">
           <img
-            :src="project.screenshot"
+            :src="imgSrc(project.screenshot)"
             :alt="project.name"
             class="h-48 w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
           />

@@ -10,6 +10,9 @@ const facts = [
 const sectionRef = ref<HTMLElement | null>(null)
 const isVisible = ref(false)
 
+const { app: { baseURL } } = useRuntimeConfig()
+const imgSrc = (path: string) => `${baseURL.replace(/\/$/, '')}${path}`
+
 const { stop } = useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
   if (isIntersecting) {
     isVisible.value = true
@@ -57,7 +60,7 @@ const { stop } = useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
         <div class="relative h-64 w-64 md:h-72 md:w-72">
           <div class="absolute inset-0 rounded-xl border-2 border-[--color-accent] translate-x-3 translate-y-3" />
           <img
-            src="/images/profile.jpg"
+            :src="imgSrc('/images/profile.jpg')"
             alt="Mark Angel Papio"
             class="relative h-full w-full rounded-xl object-cover grayscale hover:grayscale-0 transition-all duration-300"
           />

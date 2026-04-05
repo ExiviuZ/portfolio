@@ -9,6 +9,9 @@ const { displayText, start, stop } = useTypingAnimation([
 onMounted(start)
 onUnmounted(stop)
 
+const { app: { baseURL } } = useRuntimeConfig()
+const resumeUrl = `${baseURL.replace(/\/$/, '')}/resume.pdf`
+
 function scrollToProjects() {
   if (import.meta.client) {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
@@ -45,7 +48,7 @@ function scrollToProjects() {
           View My Work
         </a>
         <a
-          href="/resume.pdf"
+          :href="resumeUrl"
           download
           class="rounded-lg border border-[--color-accent] px-6 py-3 text-sm font-semibold text-[--color-accent] transition-all duration-200 hover:bg-[--color-accent]/10"
         >
