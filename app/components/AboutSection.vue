@@ -1,7 +1,7 @@
 <!-- app/components/AboutSection.vue -->
 <script setup lang="ts">
 const facts = [
-  { label: 'Location', value: 'Your City, Country' },
+  { label: 'Location', value: 'Bulacan, Philippines' },
   { label: 'Experience', value: '2+ years' },
   { label: 'Focus', value: 'Frontend Dev' },
   { label: 'Open to', value: 'Full-time roles' },
