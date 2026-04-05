@@ -1,51 +1,75 @@
+export type ProjectStatus = 'live' | 'in-development' | 'private'
+
 export interface Project {
   id: string
   name: string
   description: string
-  liveUrl: string
+  liveUrl?: string
   screenshot: string
   tags: string[]
+  status: ProjectStatus
 }
 
 export const projects: Project[] = [
   {
     id: 'project-1',
-    name: 'Project One',
+    name: 'Suntrust Properties',
     description: 'A brief description of what this project does, the problem it solves, and your role in building it.',
-    liveUrl: 'https://example.com',
-    screenshot: '/projects/project-1.png',
+    liveUrl: 'https://suntrust.com.ph',
+    screenshot: '/projects/suntrust.webp',
     tags: ['Vue.js', 'Laravel', 'MySQL'],
+    status: 'live',
   },
   {
     id: 'project-2',
-    name: 'Project Two',
+    name: 'Inlife Benefits',
     description: 'A brief description of what this project does, the problem it solves, and your role in building it.',
-    liveUrl: 'https://example.com',
-    screenshot: '/projects/project-2.png',
-    tags: ['Vue.js', 'REST API', 'Tailwind CSS'],
+    liveUrl: 'https://www.inlifebenefits.com.ph',
+    screenshot: '/projects/inlife.png',
+    tags: ['Vue.js', 'Nuxt.js', 'Tailwind CSS', 'REST API'],
+    status: 'live',
   },
   {
     id: 'project-3',
-    name: 'Project Three',
+    name: 'Robinsons Department Store',
     description: 'A brief description of what this project does, the problem it solves, and your role in building it.',
-    liveUrl: 'https://example.com',
-    screenshot: '/projects/project-3.png',
-    tags: ['JavaScript', 'HTML', 'CSS'],
+    liveUrl: 'https://robinsonsdepartmentstore.com.ph',
+    screenshot: '/projects/robinsons.webp',
+    tags: ['Vue.js', 'Nuxt.js', 'Tailwind CSS', 'REST API'],
+    status: 'live',
   },
   {
     id: 'project-4',
-    name: 'Project Four',
+    name: 'ADB Informational Platform (Microsite)',
     description: 'A brief description of what this project does, the problem it solves, and your role in building it.',
-    liveUrl: 'https://example.com',
-    screenshot: '/projects/project-4.png',
-    tags: ['Vue.js', 'Laravel', 'Tailwind CSS'],
+    liveUrl: 'https://www.adb.org/multimedia/fcas-sids-information-platform',
+    screenshot: '/projects/adb.png',
+    tags: ['Vue.js', 'Nuxt.js', 'Tailwind CSS', 'Static Site'],
+    status: 'live',
   },
   {
     id: 'project-5',
-    name: 'Project Five',
+    name: 'Etiqa Life and General Assurance Philippines, Inc.',
     description: 'A brief description of what this project does, the problem it solves, and your role in building it.',
-    liveUrl: 'https://example.com',
-    screenshot: '/projects/project-5.png',
+    screenshot: '/projects/etiqa.png',
     tags: ['Vue.js', 'PHP', 'Bootstrap'],
+    status: 'in-development',
   },
+  {
+    id: 'project-6',
+    name: 'Etiqa Online Shop Portal',
+    description: 'A brief description of what this project does, the problem it solves, and your role in building it.',
+    screenshot: '/projects/etiqa-portal.png',
+    tags: ['Vue.js', 'PHP', 'Bootstrap'],
+    status: 'in-development',
+  },
+  {
+    id: 'project-7',
+    name: 'Brikk Inventory Management System',
+    description: 'A brief description of what this project does, the problem it solves, and your role in building it.',
+    screenshot: '/projects/brikk.png',
+    tags: ['Vue.js', 'Nuxt.js', 'Tailwind CSS', 'REST API'],
+    status: 'private',
+  },
+  
 ]
