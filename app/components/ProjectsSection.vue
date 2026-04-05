@@ -33,22 +33,16 @@ const { stop } = useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
 
     <!-- Tabs -->
     <div class="mb-10 flex justify-center">
-      <div class="relative flex gap-0 rounded-full border border-[--color-border] bg-[--color-bg-card] p-1">
+      <div class="flex rounded-full border border-[--color-border] bg-[--color-bg-card] p-1 gap-1">
         <button
           v-for="tab in tabs"
           :key="tab.value"
-          class="relative z-10 rounded-full px-6 py-2 text-sm font-medium transition-colors duration-300"
+          class="cursor-pointer rounded-full px-6 py-2 text-sm font-medium transition-all duration-200"
           :class="activeTab === tab.value
-            ? 'text-[--color-bg-primary]'
-            : 'text-[--color-text-muted] hover:text-[--color-text-primary]'"
+            ? 'bg-[--color-accent] text-[--color-bg-primary] shadow-md shadow-cyan-500/20'
+            : 'text-[--color-text-muted] hover:text-[--color-text-primary] hover:bg-[--color-border]'"
           @click="activeTab = tab.value"
         >
-          <!-- Sliding pill indicator -->
-          <span
-            v-if="activeTab === tab.value"
-            class="absolute inset-0 rounded-full bg-[--color-accent]"
-            style="z-index: -1"
-          />
           {{ tab.label }}
         </button>
       </div>
