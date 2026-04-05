@@ -34,11 +34,20 @@ export function useTypingAnimation(roles: string[], typeSpeed = 100, deleteSpeed
   }
 
   function start() {
+    if (roles.length === 0) return
     timer = setTimeout(tick, typeSpeed)
   }
 
   function stop() {
-    if (timer) clearTimeout(timer)
+    if (timer) {
+      clearTimeout(timer)
+      timer = null
+    }
+    // Reset state so start() begins fresh
+    charIndex = 0
+    isDeleting = false
+    currentRoleIndex = 0
+    displayText.value = ''
   }
 
   return { displayText, start, stop }
