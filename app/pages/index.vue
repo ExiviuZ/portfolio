@@ -1,6 +1,6 @@
 <!-- app/pages/index.vue -->
 <script setup lang="ts">
-const { activeSection } = useScrollSpy(['hero', 'about', 'skills', 'learning', 'projects', 'contact'])
+const { activeSection } = useScrollSpy(['hero', 'about', 'experience', 'skills', 'learning', 'projects', 'contact'])
 </script>
 
 <template>
@@ -9,6 +9,7 @@ const { activeSection } = useScrollSpy(['hero', 'about', 'skills', 'learning', '
     <main>
       <HeroSection />
       <AboutSection />
+      <ExperienceSection />
       <SkillsSection />
       <LearningSection />
       <ProjectsSection />
