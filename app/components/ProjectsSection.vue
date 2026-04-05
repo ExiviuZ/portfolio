@@ -33,16 +33,22 @@ const { stop } = useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
 
     <!-- Tabs -->
     <div class="mb-10 flex justify-center">
-      <div class="flex rounded-lg border border-[--color-border] bg-[--color-bg-card] p-1 gap-1">
+      <div class="relative flex gap-0 rounded-full border border-[--color-border] bg-[--color-bg-card] p-1">
         <button
           v-for="tab in tabs"
           :key="tab.value"
-          class="rounded-md px-5 py-2 text-sm font-medium transition-all duration-200"
+          class="relative z-10 rounded-full px-6 py-2 text-sm font-medium transition-colors duration-300"
           :class="activeTab === tab.value
-            ? 'bg-[--color-accent] text-[--color-bg-primary]'
+            ? 'text-[--color-bg-primary]'
             : 'text-[--color-text-muted] hover:text-[--color-text-primary]'"
           @click="activeTab = tab.value"
         >
+          <!-- Sliding pill indicator -->
+          <span
+            v-if="activeTab === tab.value"
+            class="absolute inset-0 rounded-full bg-[--color-accent]"
+            style="z-index: -1"
+          />
           {{ tab.label }}
         </button>
       </div>
@@ -52,17 +58,21 @@ const { stop } = useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
       <div
         v-for="(project, index) in filteredProjects"
         :key="project.id"
-        class="group flex flex-col overflow-hidden rounded-xl border border-[--color-border] bg-[--color-bg-card] transition-all duration-300 hover:-translate-y-1 hover:border-[--color-accent]/30 hover:shadow-xl hover:shadow-cyan-500/10"
+        class="group relative flex flex-col overflow-hidden rounded-xl border border-[--color-border] bg-[--color-bg-card] transition-all duration-300 hover:border-[--color-accent]/50 hover:shadow-2xl hover:shadow-cyan-500/10"
         :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
         :style="isVisible ? { transitionDelay: `${index * 100}ms`, transitionDuration: '600ms', transitionProperty: 'opacity, transform' } : {}"
       >
+        <!-- Glow border on hover -->
+        <div class="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style="background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(6,182,212,0.06), transparent 60%)" />
+
         <div class="relative overflow-hidden">
           <img
             :src="project.screenshot"
             :alt="project.name"
-            class="h-48 w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            class="h-48 w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-[--color-bg-card] via-transparent to-transparent" />
+          <!-- Overlay that fades in on hover -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[--color-bg-card] via-[--color-bg-card]/20 to-transparent transition-opacity duration-300" />
         </div>
 
         <div class="flex flex-1 flex-col p-5">
