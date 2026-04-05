@@ -80,5 +80,71 @@ export const projects: Project[] = [
     status: 'private',
     category: 'work',
   },
-  
+
+  // ─── Frontend Mentor / Practice Projects ──────────────────────────────────
+  // Replace each entry below with your real Frontend Mentor project details.
+  // liveUrl → your live solution URL (e.g. https://your-username.github.io/project-name)
+  // screenshot → add the image to /public/projects/ and update the path
+  // tags → list the techs you used
+  {
+    id: 'practice-1',
+    name: 'Frontend Mentor Challenge 1',
+    description: 'Replace with the challenge name and a short note on what you built and what you learned.',
+    liveUrl: 'https://your-solution-url.com',
+    screenshot: '/projects/practice-1.png',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    status: 'live',
+    category: 'practice',
+  },
+  {
+    id: 'practice-2',
+    name: 'Frontend Mentor Challenge 2',
+    description: 'Replace with the challenge name and a short note on what you built and what you learned.',
+    liveUrl: 'https://your-solution-url.com',
+    screenshot: '/projects/practice-2.png',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    status: 'live',
+    category: 'practice',
+  },
+  {
+    id: 'practice-3',
+    name: 'Frontend Mentor Challenge 3',
+    description: 'Replace with the challenge name and a short note on what you built and what you learned.',
+    liveUrl: 'https://your-solution-url.com',
+    screenshot: '/projects/practice-3.png',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    status: 'live',
+    category: 'practice',
+  },
+  {
+    id: 'practice-4',
+    name: 'Frontend Mentor Challenge 4',
+    description: 'Replace with the challenge name and a short note on what you built and what you learned.',
+    liveUrl: 'https://your-solution-url.com',
+    screenshot: '/projects/practice-4.png',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    status: 'live',
+    category: 'practice',
+  },
+  {
+    id: 'practice-5',
+    name: 'Frontend Mentor Challenge 5',
+    description: 'Replace with the challenge name and a short note on what you built and what you learned.',
+    liveUrl: 'https://your-solution-url.com',
+    screenshot: '/projects/practice-5.png',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    status: 'live',
+    category: 'practice',
+  },
+  {
+    id: 'practice-6',
+    name: 'Frontend Mentor Challenge 6',
+    description: 'Replace with the challenge name and a short note on what you built and what you learned.',
+    liveUrl: 'https://your-solution-url.com',
+    screenshot: '/projects/practice-6.png',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    status: 'live',
+    category: 'practice',
+  },
+
 ]
