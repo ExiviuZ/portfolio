@@ -9,7 +9,6 @@ export default defineNuxtConfig({
   },
   ssr: false,
   app: {
-    baseURL: '/portfolio/',
     head: {
       title: 'Mark Angel Papio — Frontend Developer',
       meta: [
