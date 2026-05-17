@@ -7,6 +7,9 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
+  experimental: {
+    viteEnvironmentApi: true,
+  },
   ssr: false,
   app: {
     head: {
