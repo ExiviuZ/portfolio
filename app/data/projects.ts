@@ -16,7 +16,7 @@ export const projects: Project[] = [
   {
     id: 'project-1',
     name: 'Suntrust Properties',
-    description: 'Built and maintained the frontend of a real estate website for Suntrust Properties. Developed reusable Vue components, consumed REST APIs to display CMS-managed property listings and pages, and ensured a responsive layout across devices.',
+    description: 'Frontend for a national real estate brand — reusable Vue components consuming CMS-managed property listings over REST, responsive across every device.',
     liveUrl: 'https://suntrust.com.ph',
     screenshot: '/projects/suntrust.webp',
     tags: ['Vue.js', 'Nuxt.js', 'Tailwind CSS', 'REST API', 'CMS'],
@@ -26,7 +26,7 @@ export const projects: Project[] = [
   {
     id: 'project-2',
     name: 'Inlife Benefits',
-    description: 'Developed the frontend for Inlife\'s benefits platform, integrating REST APIs to render CMS-managed content including plans, coverage details, and informational pages. Focused on clean UI and smooth navigation across the site.',
+    description: 'Benefits platform frontend rendering CMS-managed plans, coverage details and informational pages through REST integrations, with a focus on clean navigation.',
     liveUrl: 'https://www.inlifebenefits.com.ph',
     screenshot: '/projects/inlife.png',
     tags: ['Vue.js', 'Nuxt.js', 'Tailwind CSS', 'REST API', 'CMS'],
@@ -36,7 +36,7 @@ export const projects: Project[] = [
   {
     id: 'project-3',
     name: 'Robinsons Department Store',
-    description: 'Worked on the frontend of the Robinsons Department Store website, building Vue components and connecting them to REST APIs for CMS-driven content. Handled responsive layouts and ensured consistent UI across multiple page types.',
+    description: 'Retail site frontend — Vue components wired to REST endpoints for CMS-driven content, with consistent UI across many page types.',
     liveUrl: 'https://robinsonsdepartmentstore.com.ph',
     screenshot: '/projects/robinsons.webp',
     tags: ['Vue.js', 'Nuxt.js', 'Tailwind CSS', 'REST API', 'CMS'],
@@ -45,8 +45,8 @@ export const projects: Project[] = [
   },
   {
     id: 'project-4',
-    name: 'ADB Informational Platform',
-    description: 'Built a static informational microsite for the Asian Development Bank (ADB) covering fragile and conflict-affected states. Developed entirely on the frontend using Nuxt\'s static generation — no CMS or backend involved.',
+    name: 'ADB Information Platform',
+    description: 'Static informational microsite for the Asian Development Bank on fragile and conflict-affected states — a pixel-perfect build on Nuxt static generation, no CMS or backend.',
     liveUrl: 'https://www.adb.org/multimedia/fcas-sids-information-platform',
     screenshot: '/projects/adb.png',
     tags: ['Vue.js', 'Nuxt.js', 'Tailwind CSS', 'Static Site'],
@@ -55,8 +55,8 @@ export const projects: Project[] = [
   },
   {
     id: 'project-8',
-    name: 'Designblue Manila Website',
-    description: 'Collaborated with a team to build the public-facing website for Designblue Manila, a creative agency. Contributed to the frontend development using Nuxt 4 and Vue 3, connected to a Laravel API backend with a custom CMS for content management.',
+    name: 'Designblue Manila',
+    description: 'Public site for the agency, built with the team on Nuxt 4 and Vue 3 against a Laravel API and custom CMS.',
     liveUrl: 'https://designbluemanila.com/',
     screenshot: '/projects/designblue.png',
     tags: ['Vue.js', 'Nuxt.js', 'Tailwind CSS', 'Laravel', 'REST API', 'CMS'],
@@ -65,8 +65,8 @@ export const projects: Project[] = [
   },
   {
     id: 'project-7',
-    name: 'Brikk Inventory Management System',
-    description: 'Built the frontend of an internal inventory management system, developing data-heavy UI components for managing stock, orders, and records. Integrated REST APIs to connect the Vue interface with the backend in real time.',
+    name: 'Brikk Inventory System',
+    description: 'Internal inventory management frontend — data-heavy components for stock, orders and records, wired to the backend over REST in real time.',
     screenshot: '/projects/brikk.png',
     tags: ['Vue.js', 'Nuxt.js', 'Tailwind CSS', 'REST API'],
     status: 'private',
@@ -74,8 +74,8 @@ export const projects: Project[] = [
   },
   {
     id: 'project-5',
-    name: 'Etiqa Insurance Philippines',
-    description: 'Developing the frontend for Etiqa\'s insurance website in the Philippines. Building Vue components and consuming REST APIs for CMS-managed content such as products and FAQs, while also integrating APIs provided by Etiqa\'s backend team for insurance-related flows including KYC and policy purchasing. Currently in progress.',
+    name: 'Etiqa Insurance PH',
+    description: 'Insurance site frontend: CMS-driven products and FAQs over REST, plus integrations with Etiqa\'s own backend APIs for KYC and policy purchasing flows.',
     screenshot: '/projects/etiqa.png',
     tags: ['Vue.js', 'Nuxt.js', 'Tailwind CSS', 'REST API', 'CMS'],
     status: 'in-development',
@@ -84,22 +84,18 @@ export const projects: Project[] = [
   {
     id: 'project-6',
     name: 'Etiqa Online Shop Portal',
-    description: 'Developing the frontend for Etiqa\'s online insurance shop where users can browse and purchase insurance products. Consuming REST APIs for CMS-driven content while integrating APIs provided by Etiqa\'s backend team to handle the insurance buying flow, including KYC verification and policy issuance. Currently in progress.',
+    description: 'Storefront for browsing and buying insurance products — CMS content over REST alongside third-party APIs handling KYC verification and policy issuance.',
     screenshot: '/projects/etiqa-portal.png',
     tags: ['Vue.js', 'Nuxt.js', 'Tailwind CSS', 'REST API', 'CMS'],
     status: 'in-development',
     category: 'work',
   },
 
-  // ─── Frontend Mentor / Practice Projects ──────────────────────────────────
-  // Replace each entry below with your real Frontend Mentor project details.
-  // liveUrl → your live solution URL (e.g. https://your-username.github.io/project-name)
-  // screenshot → add the image to /public/projects/ and update the path
-  // tags → list the techs you used
+  // ─── Frontend Mentor / practice projects ─────────────────────────────────
   {
     id: 'practice-1',
     name: 'URL Shortening API',
-    description: 'A Frontend Mentor challenge where I built a URL shortening landing page integrated with the CleanURI API. Practiced API calls, async JavaScript, clipboard interaction, and responsive layout across mobile and desktop.',
+    description: 'Frontend Mentor challenge integrated with the CleanURI API — async JavaScript, clipboard interaction and a responsive layout from mobile up.',
     liveUrl: 'https://exiviuz.github.io/FEM-URL-Shortening/',
     screenshot: '/projects/shortening.webp',
     tags: ['HTML', 'CSS', 'JavaScript', 'REST API'],
@@ -109,7 +105,7 @@ export const projects: Project[] = [
   {
     id: 'practice-2',
     name: 'Space Tourism',
-    description: 'A multi-page space tourism website from Frontend Mentor featuring destination, crew, and technology sections. Practiced tab-based navigation, responsive design across three breakpoints, and working with structured JSON data.',
+    description: 'Multi-page site with destination, crew and technology sections — tab navigation, three breakpoints, structured JSON data.',
     liveUrl: 'https://exiviuz.github.io/space-tourism/',
     screenshot: '/projects/space.webp',
     tags: ['HTML', 'CSS', 'JavaScript'],
@@ -119,7 +115,7 @@ export const projects: Project[] = [
   {
     id: 'practice-3',
     name: 'Job Listing with Filtering',
-    description: 'A job listings page with dynamic tag-based filtering. Users can add and remove filter tags to narrow down listings. Built with React to practice component state, derived data, and conditional rendering.',
+    description: 'Dynamic tag-based filtering built in React to practise component state, derived data and conditional rendering.',
     liveUrl: 'https://exiviuz.github.io/react-job-listing/',
     screenshot: '/projects/job-listing.png',
     tags: ['React', 'HTML', 'CSS'],
@@ -128,8 +124,8 @@ export const projects: Project[] = [
   },
   {
     id: 'practice-4',
-    name: 'RAWG Clone — Video Game Database',
-    description: 'A video game discovery app powered by the RAWG API. Displays games with ratings, genres, and platform details. Practiced working with a public API, search functionality, and card-based UI layouts.',
+    name: 'RAWG Clone',
+    description: 'Game discovery app on the RAWG API — ratings, genres and platform details in a card-based browse and search UI.',
     liveUrl: 'https://exiviuz.github.io/rawg-clone/',
     screenshot: '/projects/rawg.png',
     tags: ['HTML', 'CSS', 'JavaScript', 'REST API'],
@@ -139,7 +135,7 @@ export const projects: Project[] = [
   {
     id: 'practice-5',
     name: 'Insure Landing Page',
-    description: 'A responsive marketing landing page for an insurance company from Frontend Mentor. Focused on pixel-perfect implementation from a Figma design, mobile-first layout, and clean semantic HTML structure.',
+    description: 'Marketing landing page built pixel-perfect from a Figma design — mobile-first layout, clean semantic structure.',
     liveUrl: 'https://exiviuz.github.io/insure-landing-page/',
     screenshot: '/projects/insure.webp',
     tags: ['HTML', 'CSS', 'JavaScript'],

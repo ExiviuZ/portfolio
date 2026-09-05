@@ -17,6 +17,7 @@ function withSetup<T>(composable: () => T): [T, ReturnType<typeof createApp>] {
 
 describe('useScrollSpy', () => {
   let mockObserver: { observe: ReturnType<typeof vi.fn>; disconnect: ReturnType<typeof vi.fn>; unobserve: ReturnType<typeof vi.fn> }
+  let callback: (entries: { target: { id: string }; isIntersecting: boolean }[]) => void
 
   beforeEach(() => {
     mockObserver = {
@@ -24,7 +25,8 @@ describe('useScrollSpy', () => {
       disconnect: vi.fn(),
       unobserve: vi.fn(),
     }
-    const MockIntersectionObserver = vi.fn(function (this: unknown) {
+    const MockIntersectionObserver = vi.fn(function (this: unknown, cb: typeof callback) {
+      callback = cb
       return mockObserver
     })
     vi.stubGlobal('IntersectionObserver', MockIntersectionObserver)
@@ -68,5 +70,41 @@ describe('useScrollSpy', () => {
     expect(mockObserver.disconnect).toHaveBeenCalled()
 
     document.body.removeChild(div)
+  })
+
+  it('activates a section that crosses the band, however tall it is', () => {
+    const div = document.createElement('div')
+    div.id = 'projects'
+    document.body.appendChild(div)
+
+    const [{ activeSection }] = withSetup(() => useScrollSpy(['about', 'projects']))
+    callback([{ target: { id: 'projects' }, isIntersecting: true }])
+
+    expect(activeSection.value).toBe('projects')
+
+    document.body.removeChild(div)
+  })
+
+  it('prefers the later section when two are in the band, and restores the earlier one when it leaves', () => {
+    const a = document.createElement('div')
+    a.id = 'about'
+    const b = document.createElement('div')
+    b.id = 'experience'
+    document.body.appendChild(a)
+    document.body.appendChild(b)
+
+    const [{ activeSection }] = withSetup(() => useScrollSpy(['about', 'experience']))
+
+    callback([
+      { target: { id: 'about' }, isIntersecting: true },
+      { target: { id: 'experience' }, isIntersecting: true },
+    ])
+    expect(activeSection.value).toBe('experience')
+
+    callback([{ target: { id: 'experience' }, isIntersecting: false }])
+    expect(activeSection.value).toBe('about')
+
+    document.body.removeChild(a)
+    document.body.removeChild(b)
   })
 })

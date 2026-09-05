@@ -1,65 +1,62 @@
 <!-- app/components/HeroSection.vue -->
 <script setup lang="ts">
-const { displayText, start, stop } = useTypingAnimation([
-  'Frontend Developer',
-  'Vue.js Developer',
-  'UI/UX Enthusiast',
-])
+import { roles } from '../data/profile'
+
+const { displayText, start, stop } = useTypingAnimation(roles, 84, 42, 1800)
 
 onMounted(start)
 onUnmounted(stop)
 
-const { app: { baseURL } } = useRuntimeConfig()
-const resumeUrl = `${baseURL.replace(/\/$/, '')}/resume.pdf`
-
-function scrollToProjects() {
+function scrollTo(id: string) {
   if (import.meta.client) {
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
 }
 </script>
 
 <template>
-  <section id="hero" class="relative flex min-h-screen flex-col items-center justify-center px-6 text-center">
-    <div class="max-w-3xl">
-      <p class="mb-4 font-mono text-sm text-[--color-accent] tracking-widest uppercase">
-        Hello, I'm
-      </p>
-
-      <h1 class="mb-4 text-5xl font-bold tracking-tight text-[--color-text-primary] md:text-7xl">
-        Mark Angel Papio
-      </h1>
-
-      <div class="mb-6 h-8 font-mono text-xl text-[--color-accent] md:text-2xl">
-        <span>{{ displayText }}</span>
-        <span class="animate-pulse">|</span>
-      </div>
-
-      <p class="mb-10 mx-auto max-w-xl text-lg text-[--color-text-muted]">
-        I build clean, fast, and accessible web interfaces with Vue.js — and connect them to robust backends with Laravel.
-      </p>
-
-      <div class="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <a
-          href="#projects"
-          class="rounded-lg bg-[--color-accent] px-6 py-3 text-sm font-semibold text-[--color-bg-primary] transition-all duration-200 hover:bg-[--color-accent-hover] hover:shadow-lg hover:shadow-cyan-500/20"
-          @click.prevent="scrollToProjects"
-        >
-          View My Work
-        </a>
-        <a
-          :href="resumeUrl"
-          download
-          class="rounded-lg border border-[--color-accent] px-6 py-3 text-sm font-semibold text-[--color-accent] transition-all duration-200 hover:bg-[--color-accent]/10"
-        >
-          Download Resume
-        </a>
-      </div>
+  <section
+    id="hero"
+    class="mx-auto max-w-[1280px] px-[clamp(1.25rem,4vw,3.5rem)] pt-[clamp(3rem,9vh,6.5rem)]"
+  >
+    <!-- Masthead strip -->
+    <div class="flex flex-col gap-1 border-b border-rule pb-2.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+      <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-faint">Bulacan, Philippines</span>
+      <span class="hidden font-mono text-[10px] uppercase tracking-[0.2em] text-ink-faint sm:inline">Portfolio — Vol. 01</span>
+      <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-faint">Open to full-time</span>
     </div>
 
-    <div class="absolute bottom-8 flex flex-col items-center gap-2 text-[--color-text-muted]">
-      <span class="text-xs font-mono">scroll down</span>
-      <div class="h-8 w-px animate-bounce bg-[--color-accent]" />
+    <h1 class="reveal mt-[clamp(1.5rem,5vh,3.5rem)] mb-0 font-mono text-[clamp(3.5rem,15vw,12.25rem)] leading-[0.86] font-medium uppercase tracking-[-0.055em]">
+      Mark<br>Angel<br>Papio
+    </h1>
+
+    <div class="mt-[clamp(1.75rem,5vh,3.5rem)] grid gap-[clamp(1.5rem,4vw,3.5rem)] border-t border-ink pt-5 md:grid-cols-3">
+      <div>
+        <p class="mb-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-faint">Currently</p>
+        <p class="font-mono text-[clamp(0.9375rem,1.5vw,1.1875rem)] tracking-[-0.01em]">
+          <span>{{ displayText }}</span><span class="caret">▌</span>
+        </p>
+        <p class="mt-1.5 font-mono text-[11px] text-ink-faint">Mid Web Developer · Designblue Manila</p>
+      </div>
+
+      <div class="reveal min-w-0 md:col-span-2">
+        <p class="mb-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-faint">Statement</p>
+        <p class="max-w-[34ch] text-[clamp(1.25rem,2.3vw,1.9375rem)] leading-[1.28] tracking-[-0.015em] text-pretty">
+          I build clean, fast, accessible interfaces with <em class="italic">Vue</em> — and connect them to robust backends with <em class="italic">Laravel</em>.
+        </p>
+        <div class="mt-5.5 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
+          <a
+            href="#projects"
+            class="min-h-[50px] cursor-pointer bg-ink px-5 py-3 font-mono text-[11px] uppercase tracking-[0.14em] text-paper transition-colors hover:bg-ink-lift sm:min-h-0 flex items-center justify-center sm:inline-flex"
+            @click.prevent="scrollTo('projects')"
+          >View selected work →</a>
+          <a
+            href="#contact"
+            class="min-h-[50px] cursor-pointer border border-ink px-5 py-3 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors hover:bg-paper-hover sm:min-h-0 flex items-center justify-center sm:inline-flex"
+            @click.prevent="scrollTo('contact')"
+          >Résumé / Contact</a>
+        </div>
+      </div>
     </div>
   </section>
 </template>

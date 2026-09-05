@@ -4,10 +4,12 @@ const { activeSection } = useScrollSpy(['hero', 'about', 'experience', 'skills',
 </script>
 
 <template>
-  <div class="min-h-screen bg-[--color-bg-primary]">
+  <div class="min-h-screen overflow-x-hidden bg-paper">
+    <ScrollProgress />
     <AppNav :active-section="activeSection" />
-    <main>
+    <main id="top">
       <HeroSection />
+      <SkillTicker />
       <AboutSection />
       <ExperienceSection />
       <SkillsSection />

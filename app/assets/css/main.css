@@ -1,27 +1,95 @@
 @import "tailwindcss";
 
+/* ─── Editorial palette — cream stock, ink type ─────────────────────────── */
 @theme {
-  --color-bg-primary: #0a0a0f;
-  --color-bg-secondary: #111118;
-  --color-bg-card: #16161f;
-  --color-accent: #06b6d4;
-  --color-accent-hover: #22d3ee;
-  --color-text-primary: #f1f5f9;
-  --color-text-muted: #94a3b8;
-  --color-border: #1e1e2e;
+  --color-paper: #F1ECE2;
+  --color-paper-deep: #E9E1D2;
+  --color-paper-hover: #E5DCCB;
+  --color-paper-press: #DED4C0;
 
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --color-ink: #17150F;
+  --color-ink-lift: #3B362B;
+  --color-ink-body: #332F26;
+  --color-ink-muted: #4B4638;
+  --color-ink-quiet: #5C5648;
+  --color-ink-faint: #6B6353;
+
+  --color-rule: #CEC5B2;
+  --color-rule-dark: #4B4638;
+  --color-sand: #A29A87;
+  --color-sand-light: #C9C0AC;
+
+  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
 }
 
-html {
-  scroll-behavior: smooth;
-  background-color: var(--color-bg-primary);
-  color: var(--color-text-primary);
-  font-family: var(--font-sans);
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-serif);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  input,
+  textarea,
+  button {
+    font-family: inherit;
+  }
+
+  /* Sticky masthead clearance for anchor jumps */
+  section[id] {
+    scroll-margin-top: 68px;
+  }
 }
 
-::selection {
-  background-color: var(--color-accent);
-  color: var(--color-bg-primary);
+@keyframes tick {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes blinkbar {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(26px); filter: blur(3px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+
+@keyframes sheet {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Scroll-driven reveal. Guarded so browsers without view() timelines simply
+   render the content in place rather than replaying every animation at load. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: rise 0.95s cubic-bezier(0.16, 0.84, 0.28, 1) both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 22%;
+    }
+  }
+
+  .caret { animation: blinkbar 1.1s steps(1) infinite; }
+  .marquee-track { animation: tick 38s linear infinite; }
+  .sheet { animation: sheet 0.3s cubic-bezier(0.16, 0.84, 0.28, 1) both; }
 }

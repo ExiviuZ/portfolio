@@ -1,57 +1,35 @@
 <!-- app/components/SkillsSection.vue -->
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
-import { frontendSkills, backendSkills } from '../data/skills'
+import { frontendSkills, backendSkills, infraSkills, aiSkills } from '../data/skills'
 
-const sectionRef = ref<HTMLElement | null>(null)
-const isVisible = ref(false)
-
-const { stop } = useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
-  if (isIntersecting) {
-    isVisible.value = true
-    stop()
-  }
-})
+const groups = [
+  { label: 'Frontend', skills: frontendSkills },
+  { label: 'Backend', skills: backendSkills },
+  { label: 'Infrastructure & Tools', skills: infraSkills },
+  { label: 'AI-Assisted Development', skills: aiSkills },
+]
 </script>
 
 <template>
-  <section id="skills" ref="sectionRef" class="bg-[--color-bg-secondary] px-6 py-16">
-    <div class="mx-auto max-w-6xl">
-      <div class="mb-10 text-center">
-        <p class="mb-2 font-mono text-sm text-[--color-accent] tracking-widest uppercase">What I work with</p>
-        <h2 class="text-3xl font-bold text-[--color-text-primary] md:text-4xl">Skills</h2>
-      </div>
+  <section id="skills" class="border-t border-b border-ink bg-paper-deep">
+    <div class="mx-auto max-w-[1280px] px-[clamp(1.25rem,4vw,3.5rem)] py-[clamp(3rem,8vh,5.625rem)]">
+      <SectionHeading index="03" title="Stack" caption="What I work with" />
 
-      <div
-        class="space-y-12 transition-all duration-700"
-        :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
-      >
-        <div>
-          <h3 class="mb-6 font-mono text-sm text-[--color-text-muted] uppercase tracking-widest">Frontend</h3>
-          <div class="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
-            <div
-              v-for="skill in frontendSkills"
+      <div class="grid gap-x-[clamp(1.75rem,4vw,4rem)] gap-y-[clamp(1.75rem,3vw,2.75rem)] pt-[clamp(1.5rem,3vw,2.5rem)] md:grid-cols-2">
+        <div v-for="group in groups" :key="group.label" class="reveal min-w-0">
+          <p class="mb-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-faint">{{ group.label }}</p>
+          <ul class="m-0 list-none p-0">
+            <li
+              v-for="skill in group.skills"
               :key="skill.name"
-              class="flex flex-col items-center gap-2 rounded-xl border border-[--color-border] bg-[--color-bg-card] p-4 transition-all duration-200 hover:-translate-y-1 hover:border-[--color-accent]/40 hover:shadow-lg hover:shadow-cyan-500/5"
+              class="flex min-h-[46px] items-center gap-3.5 border-t border-rule px-0.5 py-3 transition-[background-color,padding] hover:bg-paper hover:pl-2"
             >
-              <Icon :icon="skill.icon" class="h-8 w-8" aria-hidden="true" />
-              <span class="text-xs text-[--color-text-muted]">{{ skill.name }}</span>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <h3 class="mb-6 font-mono text-sm text-[--color-text-muted] uppercase tracking-widest">Backend & Tools</h3>
-          <div class="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
-            <div
-              v-for="skill in backendSkills"
-              :key="skill.name"
-              class="flex flex-col items-center gap-2 rounded-xl border border-[--color-border] bg-[--color-bg-card] p-4 transition-all duration-200 hover:-translate-y-1 hover:border-[--color-accent]/40 hover:shadow-lg hover:shadow-cyan-500/5"
-            >
-              <Icon :icon="skill.icon" class="h-8 w-8" aria-hidden="true" />
-              <span class="text-xs text-[--color-text-muted]">{{ skill.name }}</span>
-            </div>
-          </div>
+              <Icon :icon="skill.icon" class="h-[18px] w-[18px] shrink-0" aria-hidden="true" />
+              <span class="text-[17px] tracking-[-0.01em]">{{ skill.name }}</span>
+              <span class="ml-auto font-mono text-[10px] uppercase tracking-[0.14em] text-ink-faint">{{ skill.level }}</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

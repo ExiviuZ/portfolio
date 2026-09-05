@@ -15,14 +15,17 @@ export default defineNuxtConfig({
     head: {
       title: 'Mark Angel Papio — Frontend Developer',
       meta: [
-        { name: 'description', content: 'Frontend developer portfolio showcasing projects and skills.' },
+        { name: 'description', content: 'Frontend developer in Bulacan, Philippines — Vue, Nuxt and Laravel. Selected client work, stack and contact.' },
+        { name: 'theme-color', content: '#F1ECE2' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap' },
       ],
     },
   },

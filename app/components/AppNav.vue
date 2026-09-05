@@ -7,70 +7,75 @@ defineProps<{
 const isMenuOpen = ref(false)
 
 const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Learning', href: '#learning' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Contact', href: '#contact' },
+  { n: '01', label: 'About', href: '#about' },
+  { n: '02', label: 'Experience', href: '#experience' },
+  { n: '03', label: 'Stack', href: '#skills' },
+  { n: '04', label: 'Learning', href: '#learning' },
+  { n: '05', label: 'Selected Work', href: '#projects' },
+  { n: '06', label: 'Contact', href: '#contact' },
 ]
 
 function scrollTo(href: string) {
   isMenuOpen.value = false
   if (import.meta.client) {
-    const el = document.querySelector(href)
-    el?.scrollIntoView({ behavior: 'smooth' })
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
   }
 }
 </script>
 
 <template>
-  <header class="fixed top-0 left-0 right-0 z-50 border-b border-[--color-border] bg-[--color-bg-primary]/90 backdrop-blur-sm">
-    <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-      <a href="#hero" class="font-mono text-lg font-semibold text-[--color-accent]" @click.prevent="scrollTo('#hero')">
-        &lt;MarkAngelPapio /&gt;
+  <header class="sticky top-0 z-60 border-b border-ink bg-paper/92 backdrop-blur-[6px]">
+    <div class="mx-auto flex max-w-[1280px] items-center justify-between gap-6 px-[clamp(1.25rem,4vw,3.5rem)] py-3.5 md:items-baseline">
+      <a
+        href="#top"
+        class="font-mono text-[13px] font-semibold uppercase tracking-[0.14em]"
+        @click.prevent="scrollTo('#top')"
+      >
+        Papio<span class="opacity-40">, M.A.</span>
       </a>
 
-      <ul class="hidden items-center gap-8 md:flex">
-        <li v-for="link in navLinks" :key="link.href">
-          <a
-            :href="link.href"
-            class="text-sm transition-colors duration-200"
-            :class="activeSection === link.href.slice(1)
-              ? 'text-[--color-accent] font-medium'
-              : 'text-[--color-text-muted] hover:text-[--color-text-primary]'"
-            @click.prevent="scrollTo(link.href)"
-          >
-            {{ link.label }}
-          </a>
-        </li>
-      </ul>
+      <!-- Desktop -->
+      <nav class="hidden flex-wrap items-baseline gap-[clamp(0.875rem,2.2vw,1.875rem)] md:flex">
+        <a
+          v-for="link in navLinks"
+          :key="link.href"
+          :href="link.href"
+          class="border-b pb-0.5 font-mono text-[11px] uppercase tracking-[0.12em] transition-colors"
+          :class="activeSection === link.href.slice(1)
+            ? 'border-ink text-ink'
+            : 'border-transparent text-ink-faint hover:border-ink hover:text-ink'"
+          @click.prevent="scrollTo(link.href)"
+        >
+          <span class="mr-1.5 opacity-45">{{ link.n }}</span>{{ link.label }}
+        </a>
+      </nav>
 
+      <!-- Mobile trigger -->
       <button
-        class="flex flex-col gap-1.5 md:hidden"
-        aria-label="Toggle menu"
+        class="-mr-2.5 flex h-11 w-11 cursor-pointer flex-col items-end justify-center gap-[5px] border-none bg-transparent md:hidden"
+        aria-label="Menu"
         :aria-expanded="isMenuOpen"
         @click="isMenuOpen = !isMenuOpen"
       >
-        <span v-for="i in 3" :key="i" class="block h-0.5 w-6 bg-[--color-text-primary] transition-all duration-200" />
+        <span class="block h-px w-[22px] bg-ink" />
+        <span class="block h-px w-[22px] bg-ink" />
       </button>
-    </nav>
+    </div>
 
-    <div v-if="isMenuOpen" class="border-t border-[--color-border] bg-[--color-bg-secondary] px-6 py-4 md:hidden">
-      <ul class="flex flex-col gap-4">
-        <li v-for="link in navLinks" :key="link.href">
-          <a
-            :href="link.href"
-            class="block text-sm transition-colors duration-200"
-            :class="activeSection === link.href.slice(1)
-              ? 'text-[--color-accent] font-medium'
-              : 'text-[--color-text-muted]'"
-            @click.prevent="scrollTo(link.href)"
-          >
-            {{ link.label }}
-          </a>
-        </li>
-      </ul>
+    <!-- Mobile sheet -->
+    <div v-if="isMenuOpen" class="sheet bg-ink px-4 pt-1.5 pb-3.5 md:hidden">
+      <button
+        v-for="link in navLinks"
+        :key="link.href"
+        class="flex min-h-[46px] w-full cursor-pointer items-baseline gap-3 border-none border-b border-b-ink-lift bg-transparent p-0 text-left"
+        @click="scrollTo(link.href)"
+      >
+        <span class="font-mono text-[10px] tracking-[0.16em] text-sand">{{ link.n }}</span>
+        <span
+          class="font-mono text-[12px] uppercase tracking-[0.16em]"
+          :class="activeSection === link.href.slice(1) ? 'text-paper' : 'text-paper/80'"
+        >{{ link.label }}</span>
+      </button>
     </div>
   </header>
 </template>
