@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   ssr: false,
   app: {
     head: {
+      htmlAttrs: { lang: 'en' },
       title: 'Mark Angel Papio — Frontend Developer',
       meta: [
         { name: 'description', content: 'Frontend developer in Bulacan, Philippines — Vue, Nuxt and Laravel. Selected client work, stack and contact.' },

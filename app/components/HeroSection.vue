@@ -17,6 +17,7 @@ function scrollTo(id: string) {
 <template>
   <section
     id="hero"
+    aria-label="Introduction"
     class="mx-auto max-w-[1280px] px-[clamp(1.25rem,4vw,3.5rem)] pt-[clamp(3rem,9vh,6.5rem)]"
   >
     <!-- Masthead strip -->
@@ -34,7 +35,10 @@ function scrollTo(id: string) {
       <div>
         <p class="mb-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-faint">Currently</p>
         <p class="font-mono text-[clamp(0.9375rem,1.5vw,1.1875rem)] tracking-[-0.01em]">
-          <span>{{ displayText }}</span><span class="caret">▌</span>
+          <!-- The letter-by-letter text would be announced on every tick, so it
+               is hidden and the roles are exposed as one static string. -->
+          <span class="sr-only">{{ roles.join(', ') }}</span>
+          <span aria-hidden="true">{{ displayText }}</span><span class="caret" aria-hidden="true">▌</span>
         </p>
         <p class="mt-1.5 font-mono text-[11px] text-ink-faint">Mid Web Developer · Designblue Manila</p>
       </div>

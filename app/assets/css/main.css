@@ -56,6 +56,70 @@
   section[id] {
     scroll-margin-top: 68px;
   }
+
+  /* Reserve the scrollbar gutter permanently so locking the page behind an
+     open dialog cannot shift the layout. */
+  html {
+    scrollbar-gutter: stable;
+  }
+
+  /* There is no built-in class for this: showModal() traps focus and makes the
+     page inert, but it does not stop the page behind from scrolling. */
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+
+  /* Entry/exit animation for top-layer elements. @starting-style and
+     transition-behavior are Baseline; `overlay` is Chrome/Edge only, so other
+     browsers simply skip the exit transition. */
+  dialog {
+    opacity: 0;
+    translate: 0 10px;
+    scale: 0.985;
+    transition-property: opacity, translate, scale, display, overlay;
+    transition-duration: 0.26s;
+    transition-timing-function: cubic-bezier(0.16, 0.84, 0.28, 1);
+    transition-behavior: allow-discrete;
+  }
+
+  dialog[open] {
+    opacity: 1;
+    translate: none;
+    scale: 1;
+  }
+
+  @starting-style {
+    dialog[open] {
+      opacity: 0;
+      translate: 0 10px;
+      scale: 0.985;
+    }
+  }
+
+  dialog::backdrop {
+    background-color: rgb(23 21 15 / 0);
+    transition-property: background-color, display, overlay;
+    transition-duration: 0.26s;
+    transition-timing-function: cubic-bezier(0.16, 0.84, 0.28, 1);
+    transition-behavior: allow-discrete;
+  }
+
+  dialog[open]::backdrop {
+    background-color: rgb(23 21 15 / 0.5);
+  }
+
+  @starting-style {
+    dialog[open]::backdrop {
+      background-color: rgb(23 21 15 / 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    dialog,
+    dialog::backdrop {
+      transition-duration: 0.01ms;
+    }
+  }
 }
 
 @keyframes tick {

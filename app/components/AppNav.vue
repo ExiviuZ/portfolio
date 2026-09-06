@@ -31,7 +31,7 @@ function scrollTo(href: string) {
         class="font-mono text-[13px] font-semibold uppercase tracking-[0.14em]"
         @click.prevent="scrollTo('#top')"
       >
-        Papio<span class="opacity-40">, M.A.</span>
+        Papio<span class="opacity-65">, M.A.</span>
       </a>
 
       <!-- Desktop -->
@@ -43,10 +43,10 @@ function scrollTo(href: string) {
           class="border-b pb-0.5 font-mono text-[11px] uppercase tracking-[0.12em] transition-colors"
           :class="activeSection === link.href.slice(1)
             ? 'border-ink text-ink'
-            : 'border-transparent text-ink-faint hover:border-ink hover:text-ink'"
+            : 'border-transparent text-ink-quiet hover:border-ink hover:text-ink'"
           @click.prevent="scrollTo(link.href)"
         >
-          <span class="mr-1.5 opacity-45">{{ link.n }}</span>{{ link.label }}
+          <span class="mr-1.5 text-ink-faint">{{ link.n }}</span>{{ link.label }}
         </a>
       </nav>
 
@@ -54,6 +54,7 @@ function scrollTo(href: string) {
       <button
         class="-mr-2.5 flex h-11 w-11 cursor-pointer flex-col items-end justify-center gap-[5px] border-none bg-transparent md:hidden"
         aria-label="Menu"
+        aria-controls="mobile-nav"
         :aria-expanded="isMenuOpen"
         @click="isMenuOpen = !isMenuOpen"
       >
@@ -63,7 +64,7 @@ function scrollTo(href: string) {
     </div>
 
     <!-- Mobile sheet -->
-    <div v-if="isMenuOpen" class="sheet bg-ink px-4 pt-1.5 pb-3.5 md:hidden">
+    <nav v-if="isMenuOpen" id="mobile-nav" aria-label="Sections" class="sheet bg-ink px-4 pt-1.5 pb-3.5 md:hidden">
       <button
         v-for="link in navLinks"
         :key="link.href"
@@ -76,6 +77,6 @@ function scrollTo(href: string) {
           :class="activeSection === link.href.slice(1) ? 'text-paper' : 'text-paper/80'"
         >{{ link.label }}</span>
       </button>
-    </div>
+    </nav>
   </header>
 </template>

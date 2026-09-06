@@ -9,7 +9,7 @@ const bullets = experienceBullets.map((text, i) => ({
 </script>
 
 <template>
-  <section id="experience" class="mx-auto max-w-[1280px] px-[clamp(1.25rem,4vw,3.5rem)] pb-[clamp(3.5rem,10vh,6.875rem)]">
+  <section id="experience" aria-label="Experience" class="mx-auto max-w-[1280px] px-[clamp(1.25rem,4vw,3.5rem)] pb-[clamp(3.5rem,10vh,6.875rem)]">
     <SectionHeading index="02" title="Experience" caption="Where I've worked" />
 
     <div class="reveal grid gap-[clamp(1.5rem,4vw,4rem)] pt-[clamp(1.75rem,4vw,3rem)] md:grid-cols-3">

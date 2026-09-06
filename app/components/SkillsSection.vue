@@ -12,7 +12,7 @@ const groups = [
 </script>
 
 <template>
-  <section id="skills" class="border-t border-b border-ink bg-paper-deep">
+  <section id="skills" aria-label="Stack" class="border-t border-b border-ink bg-paper-deep">
     <div class="mx-auto max-w-[1280px] px-[clamp(1.25rem,4vw,3.5rem)] py-[clamp(3rem,8vh,5.625rem)]">
       <SectionHeading index="03" title="Stack" caption="What I work with" />
 

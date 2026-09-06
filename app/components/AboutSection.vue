@@ -6,7 +6,7 @@ const assetUrl = useAssetUrl()
 </script>
 
 <template>
-  <section id="about" class="mx-auto max-w-[1280px] px-[clamp(1.25rem,4vw,3.5rem)] py-[clamp(3.5rem,10vh,6.875rem)]">
+  <section id="about" aria-label="About" class="mx-auto max-w-[1280px] px-[clamp(1.25rem,4vw,3.5rem)] py-[clamp(3.5rem,10vh,6.875rem)]">
     <SectionHeading index="01" title="About" caption="Get to know me" />
 
     <div class="grid items-start gap-x-[clamp(1.75rem,4vw,4rem)] pt-[clamp(1.75rem,4vw,3rem)] md:grid-cols-2">

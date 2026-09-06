@@ -9,7 +9,7 @@ const items = learningItems.map((item, i) => ({
 </script>
 
 <template>
-  <section id="learning" class="mx-auto max-w-[1280px] px-[clamp(1.25rem,4vw,3.5rem)] py-[clamp(3.5rem,10vh,6.875rem)]">
+  <section id="learning" aria-label="Currently learning" class="mx-auto max-w-[1280px] px-[clamp(1.25rem,4vw,3.5rem)] py-[clamp(3.5rem,10vh,6.875rem)]">
     <SectionHeading index="04" title="Currently Learning" caption="Always growing" />
 
     <p class="reveal my-[clamp(1.5rem,4vw,2.5rem)] max-w-[44ch] text-[clamp(1.125rem,1.8vw,1.4375rem)] leading-[1.4] tracking-[-0.012em] text-pretty">

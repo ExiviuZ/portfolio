@@ -43,12 +43,12 @@ async function handleSubmit() {
   }
 }
 
-const fieldClass = 'w-full box-border bg-transparent border-none border-b border-b-rule-dark py-2 text-lg text-paper outline-none transition-colors placeholder:text-sand/60 focus:border-b-paper'
+const fieldClass = 'w-full box-border bg-transparent border-none border-b border-b-rule-dark py-2 text-lg text-paper outline-none transition-colors placeholder:text-sand/60 focus:border-b-paper focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sand-light'
 const labelClass = 'block mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-sand'
 </script>
 
 <template>
-  <section id="contact" class="border-t border-ink bg-ink text-paper">
+  <section id="contact" aria-label="Contact" tabindex="-1" class="border-t border-ink bg-ink text-paper">
     <div class="mx-auto max-w-[1280px] px-[clamp(1.25rem,4vw,3.5rem)] py-[clamp(3rem,8vh,6rem)]">
       <SectionHeading index="06" title="Contact" caption="Get in touch" tone="dark" />
 
