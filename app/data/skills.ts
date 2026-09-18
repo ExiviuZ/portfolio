@@ -25,6 +25,7 @@ export const infraSkills: Skill[] = [
   { name: 'AWS (Lightsail / VPS)', icon: 'simple-icons:amazonwebservices', level: 'Working' },
   { name: 'Nginx', icon: 'simple-icons:nginx', level: 'Working' },
   { name: 'PM2', icon: 'simple-icons:pm2', level: 'Working' },
+  { name: 'Docker', icon: 'logos:docker-icon', level: 'Working' },
   { name: 'Git', icon: 'logos:git-icon', level: 'Daily' },
   { name: 'GitHub', icon: 'logos:github-icon', level: 'Daily' },
 ]
