@@ -29,6 +29,8 @@ const countLabel = computed(() => `${visibleProjects.value.length} projects`)
 // Project links leave the site, so confirm before opening them in a new tab.
 // Projects with no public URL get an explanatory dialog instead.
 const dialogRef = ref<HTMLDialogElement | null>(null)
+const { $lenis } = useNuxtApp()
+const { scrollTo: smoothScrollTo } = useSmoothScroll()
 const pending = ref<{
   name: string
   url?: string
@@ -54,6 +56,7 @@ function openDialog(project: { name: string; liveUrl?: string; statusLabel: stri
     statusLabel: project.statusLabel,
   }
   dialogRef.value?.showModal()
+  $lenis.stop()
 }
 
 function closeDialog() {
@@ -69,7 +72,7 @@ function goToContact() {
     const el = document.getElementById('contact')
     if (!el) return
     el.focus({ preventScroll: true })
-    el.scrollIntoView({ behavior: 'smooth' })
+    smoothScrollTo(el)
   }, EXIT_MS)
 }
 
@@ -79,6 +82,7 @@ function goToContact() {
 const EXIT_MS = 300
 
 function onClosed() {
+  $lenis.start()
   window.setTimeout(() => {
     if (!dialogRef.value?.open) pending.value = null
   }, EXIT_MS)

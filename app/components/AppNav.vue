@@ -15,11 +15,11 @@ const navLinks = [
   { n: '06', label: 'Contact', href: '#contact' },
 ]
 
+const { scrollTo: smoothScrollTo } = useSmoothScroll()
+
 function scrollTo(href: string) {
   isMenuOpen.value = false
-  if (import.meta.client) {
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
-  }
+  smoothScrollTo(href)
 }
 </script>
 

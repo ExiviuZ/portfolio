@@ -7,10 +7,10 @@ const { displayText, start, stop } = useTypingAnimation(roles, 84, 42, 1800)
 onMounted(start)
 onUnmounted(stop)
 
+const { scrollTo: smoothScrollTo } = useSmoothScroll()
+
 function scrollTo(id: string) {
-  if (import.meta.client) {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-  }
+  smoothScrollTo(`#${id}`)
 }
 </script>
 
