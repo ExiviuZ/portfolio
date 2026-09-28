@@ -1,0 +1,41 @@
+# Swaps the Alsons Power Group staging link for alsonspower.com once the new
+# (Nuxt) site is live there. The old site isn't Nuxt, so `/_nuxt/` in the HTML
+# means the switch has happened. Becomes a no-op after the swap is committed.
+name: Check Alsons domain
+
+on:
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Swap link if the new site is live
+        id: swap
+        run: |
+          grep -q 'alp-prod-web.designbluemanila.com' app/data/projects.ts || { echo "Already swapped"; exit 0; }
+          curl -sL -m 30 https://alsonspower.com/ | grep -q '/_nuxt/' || { echo "New site not live yet"; exit 0; }
+          sed -i 's|https://alp-prod-web.designbluemanila.com/|https://alsonspower.com/|' app/data/projects.ts
+          echo "swapped=true" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and redeploy
+        if: steps.swap.outputs.swapped == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "point Alsons Power Group link at alsonspower.com"
+          git push
+          # Pushes made with GITHUB_TOKEN don't trigger other workflows, so dispatch the deploy explicitly
+          gh workflow run deploy.yml --ref master

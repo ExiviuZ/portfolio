@@ -64,6 +64,16 @@ export const projects: Project[] = [
     category: 'work',
   },
   {
+    id: 'project-9',
+    name: 'Alsons Power Group',
+    description: 'Corporate site for a Mindanao power producer — portfolio, renewables, retail electricity supply, careers and news pages driven by CMS content over REST.',
+    liveUrl: 'https://alp-prod-web.designbluemanila.com/',
+    screenshot: '/projects/alsons.png',
+    tags: ['Vue.js', 'Nuxt.js', 'Tailwind CSS', 'REST API', 'CMS'],
+    status: 'live',
+    category: 'work',
+  },
+  {
     id: 'project-7',
     name: 'Brikk Inventory System',
     description: 'Internal inventory management frontend — data-heavy components for stock, orders and records, wired to the backend over REST in real time.',
