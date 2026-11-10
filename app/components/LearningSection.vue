@@ -13,7 +13,7 @@ const items = learningItems.map((item, i) => ({
     <SectionHeading index="04" title="Currently Learning" caption="Always growing" />
 
     <p class="reveal my-[clamp(1.5rem,4vw,2.5rem)] max-w-[44ch] text-[clamp(1.125rem,1.8vw,1.4375rem)] leading-[1.4] tracking-[-0.012em] text-pretty">
-      Good developers never stop learning. Six things I'm actively studying right now.
+      Good developers never stop learning. Five things I'm actively studying right now.
     </p>
 
     <div class="grid gap-x-[clamp(1.75rem,4vw,3.5rem)] sm:grid-cols-2 lg:grid-cols-3">

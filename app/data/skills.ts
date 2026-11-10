@@ -11,6 +11,8 @@ export const frontendSkills: Skill[] = [
   { name: 'TypeScript', icon: 'logos:typescript-icon', level: 'Confident' },
   { name: 'Vue.js', icon: 'logos:vue', level: 'Core' },
   { name: 'Nuxt.js', icon: 'logos:nuxt-icon', level: 'Core' },
+  { name: 'React.js', icon: 'logos:react', level: 'Working' },
+  { name: 'Next.js', icon: 'logos:nextjs-icon', level: 'Working' },
   { name: 'Tailwind CSS', icon: 'logos:tailwindcss-icon', level: 'Daily' },
 ]
 
@@ -38,7 +40,7 @@ export const aiSkills: Skill[] = [
 
 // Marquee band under the hero
 export const tickerSkills: string[] = [
-  'HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'Vue.js', 'Nuxt.js', 'Tailwind CSS',
+  'HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'Vue.js', 'Nuxt.js', 'React.js', 'Next.js', 'Tailwind CSS',
   'PHP', 'Laravel', 'MySQL', 'REST APIs', 'AWS', 'Nginx', 'PM2', 'Git', 'GitHub',
   'Claude Code', 'Vitest', 'Docker',
 ]

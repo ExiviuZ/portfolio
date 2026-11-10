@@ -92,8 +92,8 @@ describe('profile data', () => {
 })
 
 describe('learning data', () => {
-  it('has six items, matching the section copy', () => {
-    expect(learningItems).toHaveLength(6)
+  it('has five items, matching the section copy', () => {
+    expect(learningItems).toHaveLength(5)
   })
 
   it('each item has a title and description', () => {

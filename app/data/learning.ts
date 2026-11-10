@@ -9,5 +9,4 @@ export const learningItems: LearningItem[] = [
   { title: 'CI/CD Basics', description: 'Automated build, test and deploy pipelines, currently practising with GitHub Actions.' },
   { title: 'Docker', description: 'Containerising applications and running consistent local development environments.' },
   { title: 'Java & Spring Boot', description: 'Server-side Java with Spring and Spring Boot — dependency injection, REST controllers and a stricter, statically typed backend.' },
-  { title: 'React & Next.js', description: 'Expanding past Vue to broaden the toolkit and open up more kinds of work.' },
 ]
