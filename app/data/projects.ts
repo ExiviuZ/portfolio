@@ -67,7 +67,7 @@ export const projects: Project[] = [
     id: 'project-9',
     name: 'Alsons Power Group',
     description: 'Corporate site for a Mindanao power producer — portfolio, renewables, retail electricity supply, careers and news pages driven by CMS content over REST.',
-    liveUrl: 'https://alp-prod-web.designbluemanila.com/',
+    liveUrl: 'https://alsonspower.com/',
     screenshot: '/projects/alsons.png',
     tags: ['Vue.js', 'Nuxt.js', 'Tailwind CSS', 'REST API', 'CMS'],
     status: 'live',
